@@ -1,7 +1,7 @@
 /**:
   adma_ros2_driver:
     ros__parameters:
-      destination_ip: '192.168.88.255'
+      destination_ip: '192.168.88.100' #HJK_250311_A
       destination_port: 11021
       use_performance_check: False
       protocol_version: 'v3.3.5'
