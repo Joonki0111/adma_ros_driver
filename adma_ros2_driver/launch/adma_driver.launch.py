@@ -14,7 +14,7 @@ def generate_launch_description():
         rosbag_file_arg = DeclareLaunchArgument('rosbag_path', default_value='./')
 
         ### parameter for GSDB logging, used for ADMA-PP ####
-        log_gsdb_arg = DeclareLaunchArgument('log_gsdb', default_value='True')
+        log_gsdb_arg = DeclareLaunchArgument('log_gsdb', default_value='False') #HJK_250311_E
         raw_data_topic = '/genesys/adma/data_raw'
 
         ### parameters for recording data into a rosbag ###
