@@ -70,6 +70,8 @@ ADMADriver::ADMADriver(const rclcpp::NodeOptions & options)
       this->create_publisher<adma_ros_driver_msgs::msg::AdmaStatus>("adma/status", 1);
     pub_odometry_ =
       this->create_publisher<nav_msgs::msg::Odometry>("adma/odometry", 1);
+    pub_gnss_mode_ =
+      this->create_publisher<std_msgs::msg::Int8>("adma/gnss_mode", 1); //HJK_250311_C
 
   } else if (protocol_version_ == "v3.3.5") {
     len_ = 856;
@@ -285,6 +287,13 @@ void ADMADriver::parseData(std::array<char, 856> recv_buf)
     status_msg.header.frame_id = adma_status_frame_;
     parser_->parseV334Status(status_msg, data_struct);
     pub_adma_status_->publish(status_msg);
+
+    //HJK_250311_C {
+    uint8_t gnss_mode = adma_data_scaled_msg.status.status_gnss_mode; 
+    std_msgs::msg::Int8 gnss_mode_msg;
+    gnss_mode_msg.data = gnss_mode;
+    pub_gnss_mode_->publish(gnss_mode_msg);
+    //HJK_250311_C }
   }
   else if (protocol_version_ == "v3.3.5") {
       AdmaDataV335 data_struct;

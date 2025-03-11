@@ -6,6 +6,7 @@
 #include <std_msgs/msg/float64.hpp>
 #include <std_msgs/msg/string.hpp>
 #include <nav_msgs/msg/odometry.hpp>
+#include <std_msgs/msg/int8.hpp> //HJK_250311_C
 
 #include "adma_ros2_driver/parser/adma2ros_parser.hpp"
 #include "adma_ros_driver_msgs/msg/adma_data.hpp"
@@ -56,6 +57,7 @@ private:
   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr pub_heading_;
   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr pub_velocity_;
   rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pub_odometry_;
+  rclcpp::Publisher<std_msgs::msg::Int8>::SharedPtr pub_gnss_mode_; //HJK_250311_C
 
   // frame_ids for the ros msgs
   std::string gnss_frame_;
