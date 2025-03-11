@@ -4,7 +4,7 @@
       destination_ip: '192.168.88.100' #HJK_250311_A
       destination_port: 11021
       use_performance_check: False
-      protocol_version: 'v3.3.5'
+      protocol_version: 'v3.3.4' #HJK_250311_B
       frame_ids:
         navsatfix: 'gnss_link'
         imu: 'imu_link'
